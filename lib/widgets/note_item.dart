@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key});
@@ -29,7 +29,7 @@ class NoteItem extends StatelessWidget {
                 style: TextStyle(color: Colors.black.withOpacity(.5), fontSize: 16),
               ),
             ),
-            trailing: IconButton(onPressed: (){},icon: Icon(Icons.delete,size: 26,color: Colors.black,),)
+            trailing: IconButton(onPressed: (){},icon: const Icon(Icons.delete,size: 26,color: Colors.black,),)
           ),
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
