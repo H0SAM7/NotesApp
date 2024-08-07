@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
+  const CustomTextField({
     super.key,
     required this.label,
     required this.hint,
@@ -35,11 +35,12 @@ class CustomTextField extends StatelessWidget {
           if (data!.isEmpty) {
             return 'Field is required';
           }
+          return null;
         },
         onChanged: onchage,
         style: TextStyle(
           color: !isDarkMode ? Colors.black : Colors.white,
-          fontFamily: 'Inter',
+
         ),
         cursorColor: Colors.white,
         decoration: InputDecoration(
@@ -48,7 +49,7 @@ class CustomTextField extends StatelessWidget {
             label,
             style: TextStyle(
               color: !isDarkMode ? Colors.white : Colors.white,
-              fontFamily: 'Inter',
+
             ),
           ),
           hintText: hint,
@@ -56,7 +57,7 @@ class CustomTextField extends StatelessWidget {
           hoverColor: Colors.white,
           hintStyle: const TextStyle(
             color: Colors.grey,
-            fontFamily: 'Inter',
+   
           ),
           border: buildBorder(),
           enabledBorder: buildBorder(),
