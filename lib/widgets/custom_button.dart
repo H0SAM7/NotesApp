@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widgets/custom_indecator.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
@@ -11,8 +12,10 @@ class CustomButton extends StatelessWidget {
       this.txtcolor,
       this.width,
       this.image,
-      this.border = false});
+      this.border = false,
+      this.isloading=false});
   final String buttonName;
+  final bool isloading;
   VoidCallback? onTap;
   Color? color;
   Color? txtcolor;
@@ -39,7 +42,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: TextButton(
           onPressed: onTap,
-          child: Text(
+          child:isloading?const CustomLoadingIndicator(): Text(
             buttonName,
             style: TextStyle(
               color: txtcolor,
