@@ -11,21 +11,22 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: BlocConsumer<AddNotesCubitCubit, AddNotesCubitState>(
-        listener: (context, state) {
-          if (state is AddNoteFauiler) {
-
-            log("err message ${state.eerMessage}");
-          }
-          if(state is AddNoteSucsess){
-            Navigator.pop(context);
-
-          }
-        },
-        builder: (context, state) {
-          return  const AddNoteForm();
-        },
+    return BlocProvider(
+      create: (context) => AddNotesCubit(),
+      child: SingleChildScrollView(
+        child: BlocConsumer<AddNotesCubit, AddNotesCubitState>(
+          listener: (context, state) {
+            if (state is AddNoteFauiler) {
+              log("err message ${state.eerMessage}");
+            }
+            if (state is AddNoteSucsess) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return const AddNoteForm();
+          },
+        ),
       ),
     );
   }
