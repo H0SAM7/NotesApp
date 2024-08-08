@@ -6,18 +6,18 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.label,
     required this.hint,
-
     this.controller,
     this.maxline = 1,
     this.onTap,
     this.onSaved,
+    this.onChanged,
   });
 
   final TextEditingController? controller;
   final String label;
   final String hint;
   final int maxline;
-
+  final void Function(String)? onChanged;
   final VoidCallback? onTap;
   final void Function(String?)? onSaved;
 
@@ -28,28 +28,27 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
       child: TextFormField(
         onSaved: onSaved,
+        onChanged: onChanged,
         maxLines: maxline,
         showCursor: true,
         controller: controller,
         validator: (data) {
-          if (data?.isEmpty??true) {
+          if (data?.isEmpty ?? true) {
             return 'Field is required';
           }
           return null;
         },
-
         style: TextStyle(
           color: !isDarkMode ? Colors.black : Colors.white,
-
         ),
         cursorColor: Colors.white,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           label: Text(
             label,
             style: TextStyle(
               color: !isDarkMode ? Colors.white : Colors.white,
-
             ),
           ),
           hintText: hint,
@@ -57,7 +56,6 @@ class CustomTextField extends StatelessWidget {
           hoverColor: Colors.white,
           hintStyle: const TextStyle(
             color: Colors.grey,
-   
           ),
           border: buildBorder(),
           enabledBorder: buildBorder(),
