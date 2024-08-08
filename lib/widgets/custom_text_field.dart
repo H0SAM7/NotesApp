@@ -6,7 +6,7 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.label,
     required this.hint,
-    this.onchage,
+
     this.controller,
     this.maxline = 1,
     this.onTap,
@@ -17,9 +17,9 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final String hint;
   final int maxline;
-  final Function(String)? onchage;
+
   final VoidCallback? onTap;
-  final Function(String?)? onSaved;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +32,12 @@ class CustomTextField extends StatelessWidget {
         showCursor: true,
         controller: controller,
         validator: (data) {
-          if (data!.isEmpty) {
+          if (data?.isEmpty??true) {
             return 'Field is required';
           }
           return null;
         },
-        onChanged: onchage,
+
         style: TextStyle(
           color: !isDarkMode ? Colors.black : Colors.white,
 
