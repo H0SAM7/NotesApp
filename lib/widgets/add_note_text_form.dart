@@ -5,18 +5,18 @@ import 'package:notes_app/constants.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
-class AddNoteTextForm extends StatefulWidget {
-  const AddNoteTextForm({super.key});
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({super.key});
 
   @override
-  State<AddNoteTextForm> createState() => _AddNoteTextFormState();
+  State<AddNoteForm> createState() => _AddNoteFormState();
 }
 
-class _AddNoteTextFormState extends State<AddNoteTextForm> {
+class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subtitle;
-
+  
   @override
   Widget build(BuildContext context) {
     return Form(
