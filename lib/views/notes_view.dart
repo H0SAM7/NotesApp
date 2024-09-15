@@ -17,6 +17,8 @@ class NotesView extends StatelessWidget {
               builder: (context) {
                 return const AddNoteBottomSheet();
               });
+
+              
         },
         backgroundColor: Colors.blue,
         child: const Icon(
